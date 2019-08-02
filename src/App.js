@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Route} from 'react-router-dom'
+import Navbar from './components/Navbar'
+import World from './components/World';
+import Tech from './components/Tech';
+import Nigeria from './components/Nigeria';
+import About from './components/About';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        
+        <Navbar />
+        <Route exact path="/" component={World} />
+        <Route path="/tech" component={Tech} />
+        <Route path="/nigeria" component={Nigeria} />
+        <Route path="/about" component={About} />
+      
+      </div>
+    </BrowserRouter>
   );
 }
 
